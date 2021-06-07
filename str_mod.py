@@ -6,7 +6,7 @@ def reverse_string(input_string):
 
     :param input_string: string to be reversed
     :returns: reversed version of input string
-    :raises TypeError: if not given string
+    :raises TypeError: if input is not string
     """
 
     output_string = ""
@@ -26,7 +26,7 @@ def pig_latin(input_string):
 
     :param input_string: string to be converted
     :returns: given string in pig latin
-    :raises TypeError: if not given string
+    :raises TypeError: if input is not string
     """
 
     vowels = "aeiou"
@@ -65,5 +65,23 @@ def pig_latin(input_string):
     return latin_string
 
 
-print(reverse_string("This string is going to be reversed."))
-print(pig_latin("This string can't be in pig latin.\nBut it can if you fix punctuation."))
+def count_vowels(input_string):
+    """
+    Counts the number of each vowel in given string.
+
+    :param input_string: string to count the vowels of
+    :returns: dictionary of each vowel and corresponding count
+    :raises TypeError: if input is not string
+    """
+
+    vowels = "aeiouy"
+    vowel_counts = {v : 0 for v in vowels}
+    for letter in input_string:
+        if letter in vowel_counts.keys():
+            vowel_counts[letter] = vowel_counts.get(letter) + 1
+    return vowel_counts
+
+
+print(count_vowels("The quick brown fox jumps over the lazy dog"))
+# print(reverse_string("This string is going to be reversed."))
+# print(pig_latin("This string can't be in pig latin.\nBut it can if you fix punctuation."))
